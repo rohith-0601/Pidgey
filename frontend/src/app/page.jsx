@@ -54,14 +54,19 @@ export default function HomePage() {
 
       {/* Foreground UI */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center">
-        <motion.h1
-          className="text-5xl font-bold text-gray-900 mb-10"
+        <motion.div
+          className="flex items-center gap-3 text-5xl font-bold text-gray-900 mb-10"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Pidgey
-        </motion.h1>
+          <span>Pidgey</span>
+          <img
+            src="https://img.icons8.com/?size=100&id=BbDkxr2uDW9h&format=png&color=000000"
+            alt="pidgey-icon"
+            className="w-12 h-12"
+          />
+        </motion.div>
 
         <div className="flex flex-col gap-4 w-full max-w-xs">
           <button className="flex items-center justify-center gap-3 bg-white text-black font-semibold py-3 rounded-xl border border-gray-300 hover:bg-gray-50 transition">
