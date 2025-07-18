@@ -63,7 +63,7 @@ function LoginBox() {
           className="btn btn-secondary d-flex align-items-center justify-content-center py-2"
           style={{
             ...buttonStyle,
-            backgroundColor: "#6c757d", // Bootstrap secondary color
+            backgroundColor: "#6c757d", 
             color: "white",
           }}
           onMouseEnter={handleMouseEnter}
