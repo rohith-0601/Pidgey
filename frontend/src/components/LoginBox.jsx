@@ -1,7 +1,11 @@
 import React from "react";
 import { motion } from "motion/react";
+import { auth, provider, signInWithPopup } from "../firebase.js";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function LoginBox() {
+  const navigate = useNavigate();
   const buttonStyle = {
     backgroundColor: "white",
     color: "black",
@@ -18,6 +22,26 @@ function LoginBox() {
   const handleMouseLeave = (e) => {
     e.currentTarget.style.transform = "scale(1)";
   };
+
+  const handleGoogleLogin = async ()=>{
+    try {
+      const result = await signInWithPopup(auth,provider);
+      const token = await result.user.getIdToken();
+
+      const response = await axios.post("http://localhost:5001/api/verify-token",{
+        token,
+      });
+
+      localStorage.setItem("user",JSON.stringify(response.data.user));
+
+      navigate("/home")
+
+      
+      
+    } catch (error) {
+      console.log(`${error.message}`)
+    }
+    }
 
   return (
     <motion.div
@@ -46,6 +70,7 @@ function LoginBox() {
           style={buttonStyle}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          onClick={handleGoogleLogin}
         >
           <i className="bi bi-google me-2"></i> Login with Google
         </button>
