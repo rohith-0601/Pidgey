@@ -117,7 +117,7 @@ function LoginBox() {
       className="text-center text-dark"
     >
       <h1 className="fw-bold mb-4 fs-1 d-flex align-items-center justify-content-center gap-2">
-        Pidgey
+        Layout
         <img
           src="https://img.icons8.com/?size=100&id=BbDkxr2uDW9h&format=png&color=000000"
           alt="bird"
